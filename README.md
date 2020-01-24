@@ -1,4 +1,4 @@
-#Authentication Rest API
+# Authentication Rest API
 
 The application is used for authentication process
 
