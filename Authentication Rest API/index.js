@@ -14,7 +14,7 @@ app.get('/api/login', function(req, res){
 	const user = { id: 1, 
 		username: 'khawar',
 		email: 'khawar.mkm@gmail.com',
-		address: 'House#667A, Dhok Paracha, Satellite Town ,Rawalpindi',
+		address:{ HouseNo: 'House#667A', Area: 'Dhok Paracha', Postal_Code: 'Satellite Town' , City:'Rawalpindi'},
 		contactnum: '0311-5366374'
 
 	}
@@ -60,3 +60,4 @@ function ensureToken(req, res, next){
 app.listen(3000, function(){
 	console.log('Server Started');
 });
+
