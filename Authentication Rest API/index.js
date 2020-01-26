@@ -1,62 +1,41 @@
 var express = require('express');
-var jwt = require('jsonwebtoken');
 
 const app = express();
+app.use(express.json())
 
+//first route to access API
 app.get('/api', function(req, res){
 	res.json({
 		message: 'Welcome to API'
 	});
-
 });
 
-app.get('/api/login', function(req, res){
-	const user = { id: 1, 
-		username: 'khawar',
+//data of users
+var users = [{
+		id:1,
+		name: 'khawar',
 		email: 'khawar.mkm@gmail.com',
-		address:{ HouseNo: 'House#667A', Area: 'Dhok Paracha', Postal_Code: 'Satellite Town' , City:'Rawalpindi'},
+		password: "hello",
+		address:{ HouseNo: 'House#667A', Area: 'Dhok Paracha', Postal_Code: '46000' , City:'Rawalpindi'},
 		contactnum: '0311-5366374'
+}]
 
-	}
-
-	jwt.sign({ user }, 'key', (err, token) => {
-	res.json({
-		token
-	});
-});
-});
-
-app.get('/api/protected', ensureToken, function(req, res) {
-	jwt.verify(req.token, 'key', function(err, authData){
-		if(err){
-			res.sendStatus(403);
-		}
-
-	else{
-		res.json({
-		message: 'Welcome, Member',
-		authData: authData
-	});
-	}	
-	})
+//route to login
+app.post('/api/login' ,(req, res) => { 
+	 const user = users.find(user => user.email === req.body.email)
+	 const pass = users.find(pass => pass.password === req.body.password)
+  if (user == null) {
+  	
+    return res.status(400).send('Cannot find user')
+  }
+  if( pass == null){
+    return res.status(400).send('Wrong Password')
+  }
+else{res.send(users)}
 	
-});
+    });
 
-function ensureToken(req, res, next){
-	const bearerHeader = req.headers["authorization"];
-	if(typeof bearerHeader !== 'undefined'){
-		const bearer = bearerHeader.split(" ");
-		const bearerToken = bearer[1];
-		req.token = bearerToken;
-		next();
-	}else 
-	{
-		res.sendStatus(403);
-	}
-}
-
-
-
+//server connection
 app.listen(3000, function(){
 	console.log('Server Started');
 });
