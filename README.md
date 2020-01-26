@@ -20,14 +20,12 @@ How to Run:
 
 3- Run "nodemon start" on command line.
 
-4- Start Postman Software
-
+4- Start Postman/(Or any other Testing Software).
 5- The rest API is deployed on port 3000
 
-6- To get Token you need to go to 
+6- To get Access you need to go
 localhost:3000/api/login
 
-7- Once you get token copy that open a new tab in header paste token with Bearer token and go to 
-localhost:3000/api/protected
+7- Use Post method on Postman/(or any testing software you're using) and write down email and password already hard coded 
 
-8- Record is being already hard coded in json format
+8- If you've given right email and password it will show all the informatin of the person.
