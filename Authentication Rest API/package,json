@@ -1,22 +1,21 @@
 {
-  "name": "authenticationapi",
+  "name": "authentication",
   "version": "1.0.0",
-  "description": "Authentication Api Rest Web Service",
+  "description": "Authentication Rest API",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "strat": "nodemon index.js"
   },
   "keywords": [
+    "Authentication",
     "Rest",
-    "Api",
-    "Authentication"
+    "Api"
   ],
-  "author": "Khawar",
+  "author": "Malik Khawar",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.2"
   }
 }
