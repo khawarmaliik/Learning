@@ -1,5 +1,5 @@
 //main app class
-public class HelloWorld {
+public class helloworld {
 
 	//main function
 	public static void main(String[] args) {
@@ -41,8 +41,8 @@ void printTable() {
 }
 
 
-class Vehicle{
-	void start() {};
+abstract class Vehicle{
+	abstract void start();
 }
 
 class Bike extends Vehicle{
