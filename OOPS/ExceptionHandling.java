@@ -9,8 +9,5 @@ public class ExceptionHandling {
 		catch(Exception e){
 			System.out.println("Not a Valid Way");
 		}
-		finally{
-			System.out.println("This is finally block it will always run");
-		}
 	}
 }
